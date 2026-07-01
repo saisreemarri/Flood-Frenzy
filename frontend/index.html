@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Frenzy</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <h1>Flood Frenzy</h1>
+
+        <!-- Accessibility Switch -->
+        <div class="top-controls">
+
+    <div class="history-controls">
+
+        <button id="undoBtn" class="history-btn">
+            ↶ Undo
+        </button>
+
+    </div>
+
+    <div class="accessibility-container">
+
+        <span>Accessibility</span>
+
+        <label class="switch">
+
+            <input type="checkbox" id="colorBlindToggle">
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+</div>
+
+        <!-- Game Board -->
+        <div id="board" class="board"></div>
+
+        <!-- Move Counter -->
+        <p id="moveCounter">Moves : 0</p>
+
+        <!-- Color Palette -->
+        <div class="color-controls">
+
+        <button class="color-btn red" data-color="0" data-symbol="●"></button>
+
+        <button class="color-btn yellow" data-color="1" data-symbol="■"></button>
+
+        <button class="color-btn green" data-color="2" data-symbol="▲"></button>
+
+        <button class="color-btn blue" data-color="3" data-symbol="★"></button>
+
+        <button class="color-btn pink" data-color="4" data-symbol="✚"></button>
+
+</div>
+
+        <!-- Win Message -->
+        <div id="winModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <h2>🎉 You Won!</h2>
+
+        <p id="finalMoves"></p>
+
+        <button id="newGameBtn">
+            Play Again
+        </button>
+
+    </div>
+
+</div>
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

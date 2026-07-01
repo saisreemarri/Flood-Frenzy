@@ -1,0 +1,420 @@
+/* ========================= */
+/* General */
+/* ========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: beige;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* ========================= */
+/* Title */
+/* ========================= */
+
+h1 {
+    margin: 4px 0;
+    font-size: 2rem;
+}
+
+/* ========================= */
+/* Accessibility */
+/* ========================= */
+
+/* ========================= */
+/* Top Controls */
+/* ========================= */
+
+.top-controls{
+
+    width:470px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+}
+
+.history-controls{
+
+    display:flex;
+
+    gap:10px;
+}
+
+.accessibility-container{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+/* Switch */
+
+.switch {
+    position: relative;
+    width: 56px;
+    height: 30px;
+    display: inline-block;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: #bfbfbf;
+    border-radius: 30px;
+
+    transition: .3s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+    height: 22px;
+
+    left: 4px;
+    bottom: 4px;
+
+    background: white;
+    border-radius: 50%;
+
+    transition: .3s;
+}
+
+input:checked + .slider {
+    background: #4D96FF;
+}
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+/* ========================= */
+/* Board */
+/* ========================= */
+
+.board {
+
+    display: grid;
+
+    grid-template-columns: repeat(11, 42px);
+    grid-template-rows: repeat(11, 42px);
+
+    gap: 2px;
+
+    justify-content: center;
+
+    padding: 4px;
+
+    overflow: visible;
+}
+
+/* ========================= */
+/* Cells */
+/* ========================= */
+
+.cell {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid #222;
+
+    box-sizing: border-box;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: transparent;
+
+    transform-origin: center;
+
+    transition:
+        transform .25s ease,
+        background-color .25s ease;
+}
+
+/* Highlight Animation */
+
+.cell.highlight {
+
+    transform: scale(1.18);
+
+    z-index: 10;
+}
+
+/* Accessibility */
+
+.color-blind .cell {
+
+    color: black;
+}
+
+/* ========================= */
+/* Move Counter */
+/* ========================= */
+
+#moveCounter {
+
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ========================= */
+/* Color Buttons */
+/* ========================= */
+
+.color-controls {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+.color-btn {
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 2px solid #222;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.color-btn:hover {
+
+    transform: scale(1.08);
+}
+
+.color-btn:active {
+
+    transform: scale(.95);
+}
+
+.color-btn:focus {
+
+    outline: none;
+}
+
+/* ========================= */
+/* Win Message */
+/* ========================= */
+
+.hidden {
+
+    display: none;
+}
+
+#winMessage {
+
+    text-align: center;
+}
+
+#newGameBtn {
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+
+    border: 2px solid;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+/* ========================= */
+/* Colors */
+/* ========================= */
+
+.red {
+    background: #FF6B6B;
+}
+
+.yellow {
+    background: #FFD93D;
+}
+
+.green {
+    background: #6BCB77;
+}
+
+.blue {
+    background: #4D96FF;
+}
+
+.pink {
+    background: #a308b1;
+}
+
+/* ========================= */
+/* Win Modal */
+/* ========================= */
+
+.modal {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal-content {
+
+    background: white;
+
+    padding: 35px 45px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.3);
+
+    animation: popup .25s ease;
+}
+
+.modal-content h2{
+
+    margin-top:0;
+    color:#4D96FF;
+}
+
+.modal-content p{
+
+    font-size:22px;
+    margin:20px 0;
+}
+
+.hidden{
+
+    display:none;
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+.color-btn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.history-btn{
+
+    padding:8px 14px;
+
+    border:3px solid;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    background:beige;
+
+    transition:.2s;
+}
+
+.history-btn:hover{
+
+    background:#dddddd;
+
+    transform:translateY(-1px);
+}
+
+.history-btn:active{
+
+    transform:scale(.96);
+}
